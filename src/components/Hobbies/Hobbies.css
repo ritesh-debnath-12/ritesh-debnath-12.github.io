@@ -1,0 +1,412 @@
+/*
+================================================================================
+HOBBIES COLORS DIRECTORY
+================================================================================
+
+This section serves as a reference for all hobby subsection colors used throughout
+the Hobbies section. Each subsection has both HEX and RGB values for advanced
+styling effects, particularly for dark mode glow effects.
+
+HOBBIES SUBSECTION COLOR PALETTE:
+┌─────────────────────────┬─────────────┬─────────────────┬─────────────────┐
+│ Subsection              │ HEX Color   │ RGB Values      │ Color Preview   │
+├─────────────────────────┼─────────────┼─────────────────┼─────────────────┤
+│ Games                   │ #FF6B35     │ 255, 107, 53    │ Gaming Orange   │
+│ Anime & Manga           │ #FF1744     │ 255, 23, 68     │ Japan Red       │
+│ Languages               │ #9C27B0     │ 156, 39, 176    │ Language Purple │
+│ Books & Reading         │ #795548     │ 121, 85, 72     │ Book Brown      │
+└─────────────────────────┴─────────────┴─────────────────┴─────────────────┘
+
+SUBSECTION THEMES:
+- Games: Energetic gaming orange representing digital entertainment
+- Anime & Manga: Traditional Japanese red for cultural appreciation
+- Languages: Purple representing communication and learning
+- Books: Earthy brown representing knowledge and literature
+
+USAGE NOTES:
+- HEX colors are used for basic styling (borders, text, icons)
+- RGB values are used for advanced effects (glows, shadows, transparency)
+- Colors are applied via CSS custom properties: --subsection-color and --subsection-color-rgb
+- Each subsection has an editable count similar to Projects section
+- Grid layout with responsive cards showing hobby items
+
+DARK MODE ENHANCEMENTS:
+- Multi-layer glow effects using rgba(var(--subsection-color-rgb), opacity)
+- Enhanced icon glow with text-shadow: 0 0 12px var(--subsection-color)
+- Title glow with text-shadow: 0 0 8px var(--subsection-color)
+- Enhanced saturation with filter: brightness(1.2) saturate(1.3)
+- Border glows and inset shadows for depth effect
+
+================================================================================
+*/
+
+.hobbies-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.hobbies-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hobbies-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 1rem 0;
+  transition: color 0.3s ease;
+}
+
+.hobbies-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #007ACC, #00D4FF);
+  border-radius: 2px;
+  transition: width 0.8s ease;
+}
+
+.hobbies-title:hover::after {
+  width: 400px;
+}
+
+.hobbies-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0 0 4rem 0;
+  transition: color 0.3s ease;
+}
+
+.hobby-subsection {
+  margin-bottom: 4rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.subsection-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.subsection-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--subsection-color, #007ACC);
+  margin: 0 0 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.subsection-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin: 0 0 1rem 0;
+  transition: color 0.3s ease;
+}
+
+.subsection-count {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.editable-count {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--subsection-color, #007ACC);
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.editable-count:hover {
+  background: rgba(var(--subsection-color-rgb, 0, 122, 204), 0.1);
+}
+
+.editable-count.editing,
+.editable-count input {
+  border: 1px solid var(--subsection-color, #007ACC);
+  outline: none;
+  background: rgba(var(--subsection-color-rgb, 0, 122, 204), 0.05);
+}
+
+.edit-icon {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+.hobby-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hobby-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: left;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  height: fit-content;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hobby-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--subsection-color, #007ACC) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.hobby-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--subsection-color, #007ACC);
+}
+
+.hobby-card:hover::before {
+  opacity: 0.05;
+}
+
+.hobby-card:hover .hobby-icon {
+  color: var(--subsection-color, #007ACC);
+  transform: scale(1.1);
+}
+
+.hobby-card:hover .hobby-title {
+  color: var(--subsection-color, #007ACC);
+}
+
+.hobby-icon {
+  font-size: 2.5rem;
+  color: #666;
+  margin-bottom: 1rem;
+  transition: all 0.4s ease;
+}
+
+.hobby-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hobby-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 0.8rem 0;
+  transition: color 0.4s ease;
+}
+
+.hobby-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0 0 1rem 0;
+  flex: 1;
+  transition: color 0.3s ease;
+}
+
+.hobby-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.hobby-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  color: #666;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.hobby-card:hover .hobby-tag {
+  background: rgba(var(--subsection-color-rgb, 0, 122, 204), 0.1);
+  border-color: var(--subsection-color, #007ACC);
+  color: var(--subsection-color, #007ACC);
+}
+
+/* Dark mode styles */
+.app.dark .hobbies-section {
+  background: #000;
+}
+
+.app.dark .hobbies-title {
+  color: #fff;
+}
+
+.app.dark .hobbies-subtitle {
+  color: #999;
+}
+
+.app.dark .subsection-subtitle {
+  color: #ccc;
+}
+
+.app.dark .subsection-count {
+  color: #777;
+}
+
+.app.dark .hobby-card {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.app.dark .hobby-card:hover {
+  background: #222;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(var(--subsection-color-rgb, 0, 122, 204), 0.3),
+    inset 0 1px 0 rgba(var(--subsection-color-rgb, 0, 122, 204), 0.2);
+  border-color: var(--subsection-color, #007ACC);
+  filter: brightness(1.2) saturate(1.3);
+}
+
+.app.dark .hobby-card:hover::before {
+  opacity: 0.15;
+  background: linear-gradient(135deg, 
+    rgba(var(--subsection-color-rgb, 0, 122, 204), 0.2) 0%, 
+    transparent 50%);
+}
+
+.app.dark .hobby-card:hover .hobby-icon {
+  color: var(--subsection-color, #007ACC);
+  transform: scale(1.1);
+  text-shadow: 0 0 12px var(--subsection-color, #007ACC);
+  filter: brightness(1.4) saturate(1.6);
+}
+
+.app.dark .hobby-card:hover .hobby-title {
+  color: var(--subsection-color, #007ACC);
+  text-shadow: 0 0 8px var(--subsection-color, #007ACC);
+}
+
+.app.dark .hobby-icon {
+  color: #999;
+}
+
+.app.dark .hobby-title {
+  color: #fff;
+}
+
+.app.dark .hobby-description {
+  color: #ccc;
+}
+
+.app.dark .hobby-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #999;
+}
+
+.app.dark .hobby-card:hover .hobby-tag {
+  background: rgba(var(--subsection-color-rgb, 0, 122, 204), 0.2);
+  border-color: var(--subsection-color, #007ACC);
+  color: var(--subsection-color, #007ACC);
+  text-shadow: 0 0 4px var(--subsection-color, #007ACC);
+}
+
+.app.dark .editable-count {
+  color: var(--subsection-color, #007ACC);
+}
+
+.app.dark .editable-count:hover {
+  background: rgba(var(--subsection-color-rgb, 0, 122, 204), 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hobbies-section {
+    padding: 3rem 1rem;
+  }
+  
+  .hobbies-title {
+    font-size: 2.5rem;
+  }
+  
+  .hobbies-subtitle {
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .subsection-title {
+    font-size: 1.8rem;
+  }
+  
+  .hobby-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .hobby-card {
+    padding: 1.2rem;
+    min-height: 240px;
+  }
+  
+  .hobby-icon {
+    font-size: 2rem;
+  }
+  
+  .hobby-title {
+    font-size: 1.1rem;
+  }
+  
+  .hobby-description {
+    font-size: 0.9rem;
+  }
+  
+  .hobby-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+}

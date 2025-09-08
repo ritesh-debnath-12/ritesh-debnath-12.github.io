@@ -1,0 +1,60 @@
+.footer {
+  background: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 2rem 0;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.footer-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-text {
+  display: inline;
+  /* I need to add spacing to the right for various footer-text. margin-right won't work here */
+  padding-right: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.footer-text a {
+  color: #999;
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  text-decoration: underline;
+  color: #333;
+  transition: all 0.5s ease;
+}
+
+/* Dark mode styles */
+.app.dark .footer {
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app.dark .footer-text {
+  color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0;
+  }
+  
+  .footer-container {
+    padding: 0 1rem;
+  }
+  
+  .footer-text {
+    font-size: 0.9rem;
+  }
+}

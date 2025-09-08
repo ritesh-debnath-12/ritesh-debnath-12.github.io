@@ -1,0 +1,186 @@
+{
+  "Portfolio": {
+    "notes": "This is my personal portfolio website. It must be extremely minimalistic i.e clean lines, ample white space, and a limited color palette. However to spice things up, things should fill up with color when hovered over. The font should be Inter, modern, and easy to read. The layout should be simple and intuitive, with clear navigation and a focus on showcasing my work and skills.",
+    "theme": ["minimalistic", "black", "white", "colorful_accent", "Inter"],
+    "parts": {
+      "nav": {
+        "meta": {
+          "theme": ["minimalistic", "sticky"],
+          "background": "white",
+          "text": "black"
+        },
+        "contains": {
+          "left": "PLACEHOLDER_PORTFOLIO_NAME",
+          "center": ["home", "about", "skills", "projects", "contact"],
+          "right": "💡 Light/Dark"
+        },
+        "note": "This is the navigation bar. Replace the bulb with a hollow transparent bulb icon."
+      },
+      "home": {
+        "meta": {
+          "theme": "minimalistic",
+          "background": "white",
+          "text": "black"
+        },
+        "contains": {
+          "left": "random quote",
+          "right": "b/w image"
+        },
+        "note": "This is the hero(and the home) of the page."
+      },
+      "about": {
+        "meta": {
+          "theme": "minimalistic",
+          "background": "white",
+          "text": "black"
+        },
+        "contains": {
+          "top-center": "About Me",
+          "body": "short bio"
+        },
+        "note": "This is the about section."
+      },
+      "skills": {
+        "meta": {
+          "theme": "minimalistic",
+          "background": "white",
+          "text": "black"
+        },
+        "contains": {
+          "top-center": "Skills",
+          "body": "A showcase of my technical skills",
+          "cards": [
+            {
+              "icon": "Java Icon",
+              "title": "Java",
+              "description": "Description of Java"
+            },
+            {
+              "icon": "Skill 2 Icon",
+              "title": "Skill 2",
+              "description": "Description of Skill 2"
+            },
+            {
+              "icon": "Skill 3 Icon",
+              "title": "Skill 3",
+              "description": "Description of Skill 3"
+            },
+            {
+              "icon": "Skill 4 Icon",
+              "title": "Skill 4",
+              "description": "Description of Skill 4"
+            }
+          ]
+        },
+        "note": "This is the skills section. The skills card should have a hover effect that changes to the original color of the icon. They should also move in a subtle 3D carousel...like tarot cards."
+      },
+      "projects": {
+        "meta": {
+          "theme": "minimalistic",
+          "background": "white",
+          "text": "black"
+        },
+        "contains": {
+          "top-center": "Projects",
+          "body": "A showcase of my projects",
+          "cards": [
+            {
+              "title": "Project 1",
+              "description": "Description of Project 1"
+            },
+            {
+              "title": "Project 2",
+              "description": "Description of Project 2"
+            },
+            {
+              "title": "Project 3",
+              "description": "Description of Project 3"
+            },
+            {
+              "title": "Project 4",
+              "description": "Description of Project 4"
+            }
+          ]
+        },
+        "note": "This is the projects section. Similar to the skills section, each project card should have a hover effect that changes to the original color of the project icon."
+      },
+      "contact": {
+        "meta": {
+          "theme": "minimalistic",
+          "background": "white",
+          "text": "black"
+        },
+        "contains": {
+          "top-center": "Contact Me",
+          "body": "A way for people to get in touch with me",
+          "cards": [
+            {
+              "icon": "Email"
+            },
+            {
+              "icon": "LinkedIn"
+            },
+            {
+              "icon": "GitHub"
+            },
+            {
+              "icon": "Twitter"
+            },
+            {
+              "icon": "Discord"
+            }
+          ]
+        },
+        "note": "This is the contact section. No need to move these around, however the hover effects should be consistent with the rest of the site."
+      },
+      "hobbies": {
+        "meta": {
+          "theme": "minimalistic",
+          "background": "white",
+          "text": "black"
+        },
+        "contains": {
+          "top-center": "Hobbies",
+          "body": "A deep dive into my personal interests and hobbies.",
+          "cards": {
+            "hobby-1": {
+              "icon": "Hobby 1 Icon",
+              "title": "Hobby 1",
+              "description": "Description of Hobby 1"
+            },
+            "hobby-2": {
+              "icon": "Hobby 2 Icon",
+              "title": "Hobby 2",
+              "description": "Description of Hobby 2"
+            },
+            "hobby-3": {
+              "icon": "Hobby 3 Icon",
+              "title": "Hobby 3",
+              "description": "Description of Hobby 3"
+            },
+            "hobby-4": {
+              "icon": "Hobby 4 Icon",
+              "title": "Hobby 4",
+              "description": "Description of Hobby 4"
+            }
+          }
+        },
+        "note": "This is the hobbies section. Each hobby card should have a hover effect that changes to the original color of the hobby icon. Also, carousel effects should be applied."
+      },
+      "footer": {
+        "meta": {
+          "theme": "minimalistic",
+          "background": "white",
+          "text": "black"
+        },
+        "contains": {
+          "center": "Made with ❤️ by Neko"
+        }
+      },
+      "animations": {
+        "lib": "gsap",
+        "note": "Use GSAP for smooth animations and transitions throughout the site."
+      }
+    }
+  }
+}

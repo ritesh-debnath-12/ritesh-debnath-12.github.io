@@ -1,0 +1,14 @@
+# Copyright & License
+
+## Design & Code
+Released under the GNU General Public License v3.0 (GPLv3).  
+You may use, modify, and share under GPLv3’s Free and Open Source Software (FOSS) rules.  
+
+See [LICENSE](./LICENSE) for the full text of GPLv3.  
+
+## Personal Images and Photos
+© 2025 Neko. All Rights Reserved.  
+These are **not licensed for reuse**.  
+You are forbidden to copy, redistribute, or modify them in any form without explicit permission.
+
+Thank you for obliging :>

@@ -1,0 +1,58 @@
+{
+  "projects": [
+    {
+      "title": "NekoScraper",
+      "description": "Blazingly fast Java-based scraper for a very specific university’s grade portal, turbocharged with Java and Selenium’s ExpectedConditions for speed and stability! ",
+      "technologies": ["Java", "Selenium", "Maven", "WebScraping", "Github Actions"],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/ritesh-debnath-12/NekoScraper",
+      "color": "#007ACC",
+      "colorRgb": "0, 122, 204"
+    },
+    {
+      "title": "Fitrackz",
+      "description": "Solo-built full-stack fitness tracking app with sensor data collection. Designed responsive UI with TailwindCSS and integrated user auth + dashboard analytics.",
+      "technologies": ["NextJS", "FitnessTracker", "Vercel", "Kinde", "PostgreSQL"],
+      "liveUrl": "https://fitrackz.vercel.app/",
+      "githubUrl": "https://github.com/ritesh-debnath-12/Fitrackz",
+      "color": "#FF6B6B",
+      "colorRgb": "255, 107, 107"
+    },
+    {
+      "title": "Simple Calculator",
+      "description": "A simple command-line calculator written purely in x86 Assembly that supports the four basic arithmetic operations: addition, subtraction, multiplication, and division.",
+      "technologies": ["Calculator", "Assembly", "x86", "CISC", "NASM"],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/ritesh-debnath-12/simple-calculator",
+      "color": "#4ECDC4",
+      "colorRgb": "78, 205, 196"
+    },
+    {
+      "title": "Portfolio Website",
+      "description": "A minimalistic portfolio website showcasing projects and skills with smooth animations and responsive design.",
+      "technologies": ["React", "TypeScript", "GSAP", "CSS3"],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/ritesh-debnath-12/portfolio-website",
+      "color": "#45B7D1",
+      "colorRgb": "69, 183, 209"
+    },
+    {
+      "title": "PHP_SVU_B4",
+      "description": "Wrote documentation for the PHP_SVU_B4 project, to help out my fellow classmates and improve the overall understanding of the codebase.",
+      "technologies": ["PHP", "Documentation", "Markdown", "Excalidraw"],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/mayukh14Qf/PHP_SVU_B4",
+      "color": "#9B59B6",
+      "colorRgb": "155, 89, 182"
+    },
+    {
+      "title": "PoolMyRide",
+      "description": "PoolMyRide is a web-driven car pooling application, that aims to provide you with a side income, while you go about your day-to-day chores.",
+      "technologies": ["React", "Flask", "FirebaseDB", "TailwindCSS", "PollutionReduction"],
+      "liveUrl": "#",
+      "githubUrl": "https://github.com/ritesh-debnath-12/PoolMyRide",
+      "color": "#E74C3C",
+      "colorRgb": "231, 76, 60"
+    }
+  ]
+}

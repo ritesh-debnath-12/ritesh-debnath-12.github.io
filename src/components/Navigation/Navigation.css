@@ -1,0 +1,285 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav-left .portfolio-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+.nav-center {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  position: relative; /* needed for underline pseudo-element */
+}
+
+/* Remove blue focus outline for nav items */
+.nav-item:focus,
+.nav-item:focus-visible,
+.nav-item:active {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+
+.nav-item:hover {
+  color: #000;
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.nav-item.active {
+  color: #000;
+  background: none; /* remove capsule */
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #007ACC, #00D4FF);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-right .theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Remove blue focus outline for theme toggle (no underline) */
+.theme-toggle:focus,
+.theme-toggle:focus-visible,
+.theme-toggle:active {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.theme-toggle svg {
+  font-size: 1.2rem;
+}
+
+/* Mobile menu button - hidden on desktop */
+.mobile-menu-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  color: #000; /* ensure hamburger lines visible in light mode */
+}
+.mobile-menu-button .hamburger {
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  position: relative;
+}
+.mobile-menu-button .hamburger::before,
+.mobile-menu-button .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+}
+.mobile-menu-button .hamburger::before { top: -6px; }
+.mobile-menu-button .hamburger::after { top: 6px; }
+
+.mobile-menu-button:hover { background: rgba(0,0,0,0.05); transform: translateY(-1px); }
+.app.dark .mobile-menu-button { border-color: rgba(255,255,255,0.2); }
+.app.dark .mobile-menu-button { color: #fff; }
+.app.dark .mobile-menu-button:hover { background: rgba(255,255,255,0.1); }
+
+/* Mobile dropdown */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 0.5rem;
+  z-index: 1200;
+  min-width: 160px;
+  max-width: calc(100vw - 2rem);
+  overflow: hidden;
+}
+.mobile-menu.open { display: block; }
+.mobile-menu-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  color: #444;
+  font-family: 'Inter', sans-serif;
+  text-transform: capitalize;
+}
+.mobile-menu-divider { height: 1px; background: rgba(0,0,0,0.08); margin: 0.4rem 0; }
+.mobile-theme-toggle { display: flex; align-items: center; gap: 8px; text-transform: none; }
+.mobile-menu-item:hover { background: rgba(0,0,0,0.06); color: #000; }
+.mobile-menu-item.active { background: rgba(0,0,0,0.08); color: #000; }
+
+.app.dark .mobile-menu { background: rgba(0,0,0,0.98); border-color: rgba(255,255,255,0.15); }
+.app.dark .mobile-menu-item { color: #ccc; }
+.app.dark .mobile-menu-item:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.app.dark .mobile-menu-item.active { background: rgba(255,255,255,0.18); color: #fff; }
+.app.dark .mobile-menu-divider { background: rgba(255,255,255,0.15); }
+
+/* Dark mode styles */
+.app.dark .navigation {
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app.dark .nav-left .portfolio-name {
+  color: #fff;
+}
+
+.app.dark .nav-item {
+  color: #999;
+}
+
+.app.dark .nav-item:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.app.dark .nav-item.active {
+  color: #fff;
+  background: none; /* remove capsule in dark mode */
+}
+
+.app.dark .nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #007ACC, #00D4FF);
+  border-radius: 2px;
+}
+
+.app.dark .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #999;
+}
+
+.app.dark .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  /* Hide inline nav items on mobile; show hamburger */
+  .nav-center { display: none; }
+  .mobile-menu-button { display: inline-flex; }
+  
+  /* Hide standalone theme toggle on mobile to avoid duplication with dropdown */
+  .theme-toggle { display: none !important; }
+  
+  /* Ensure mobile menu doesn't overflow on very small screens */
+  .mobile-menu {
+    right: 0.5rem;
+    left: auto;
+    max-width: calc(100vw - 1rem);
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 0.5rem;
+  }
+  
+  .nav-left .portfolio-name {
+    font-size: 1.25rem;
+  }
+  
+  .mobile-menu {
+    right: 0.25rem;
+    max-width: calc(100vw - 0.5rem);
+    min-width: 140px;
+  }
+  
+  .mobile-menu-item {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+  }
+}

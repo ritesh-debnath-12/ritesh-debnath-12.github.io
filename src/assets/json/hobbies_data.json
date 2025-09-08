@@ -1,0 +1,126 @@
+{
+  "hobbies": {
+    "games": {
+      "title": "Games",
+      "subtitle": "Digital worlds and interactive experiences",
+      "color": "#FF6B35",
+      "colorRgb": "255, 107, 53",
+      "items": [
+        {
+          "icon": "IoGameController",
+          "title": "Halo Series",
+          "description": "There is a woman in my head, who calls me stud-muffin.",
+          "tags": ["FPS", "Sci-Fi", "Campaign", "Lore"]
+        },
+        {
+          "icon": "GiSwordsPower",
+          "title": "Warhammer 40K Games",
+          "description": "Remember, Cadia stands!",
+          "tags": ["Strategy", "RPG", "Lore"]
+        },
+        {
+          "icon": "FaRocket",
+          "title": "No Man's Sky",
+          "description": "Bonkers space exploration with limitless possibilities.",
+          "tags": ["Exploration", "Survival", "Creative", "Procedural", "25QUINTILLIONPLANETSWTF"]
+        },
+        {
+          "icon": "GiStiletto",
+          "title": "Expedition 33",
+          "description": "For those, who came after.",
+          "tags": ["Exploration", "Turn Based", "Indie", "French", "Gommage"]
+        },
+        {
+          "icon": "FaSkull",
+          "title": "This War of Mine",
+          "description": "Knee deep in the horrors of war.",
+          "tags": ["Survival", "Story", "Moral Choices"]
+        },
+        {
+          "icon": "SiSteam",
+          "title": "Indie Games",
+          "description": "Discovering unique and creative independent game experiences.",
+          "tags": ["Indie", "Creative", "Experimental"]
+        }
+      ]
+    },
+    "anime": {
+      "title": "Anime & Manga",
+      "subtitle": "Japanese storytelling through animation and comics",
+      "color": "#FF1744",
+      "colorRgb": "255, 23, 68",
+      "items": [
+        {
+          "icon": "FaBookOpen",
+          "title": "Manga Reading",
+          "description": "Exploring diverse stories and art styles through Japanese graphic novels.",
+          "tags": ["Weekly Releases", "Various Genres", "Art Style"]
+        },
+        {
+          "icon": "GiJapan",
+          "title": "Seasonal Anime",
+          "description": "Following current anime seasons and discovering new series.",
+          "tags": ["Seasonal", "Various Studios", "Community"]
+        },
+        {
+          "icon": "FaGlobeAmericas",
+          "title": "Japanese Culture",
+          "description": "Learning about Japanese culture, traditions, and modern society.",
+          "tags": ["Culture", "Traditions", "Society"]
+        }
+      ]
+    },
+    "languages": {
+      "title": "Languages",
+      "subtitle": "Exploring human communication and culture",
+      "color": "#9C27B0",
+      "colorRgb": "156, 39, 176",
+      "items": [
+        {
+          "icon": "GiJapan",
+          "title": "Japanese",
+          "description": "Learning the beautiful complexity of Japanese writing and conversation.",
+          "tags": ["Hiragana/Katakana", "Kanji", "Conversation"]
+        },
+        {
+          "icon": "GiEarthAfricaEurope",
+          "title": "German",
+          "description": "Mastering the precision and logical structure of German grammar.",
+          "tags": ["Grammar", "Vocabulary", "Culture"]
+        },
+        {
+          "icon": "FaLanguage",
+          "title": "Language Learning",
+          "description": "Exploring different approaches to acquiring new languages effectively.",
+          "tags": ["Methods", "Practice", "Immersion"]
+        }
+      ]
+    },
+    "books": {
+      "title": "Books & Reading",
+      "subtitle": "Knowledge and stories through literature",
+      "color": "#795548",
+      "colorRgb": "121, 85, 72",
+      "items": [
+        {
+          "icon": "FaBookOpen",
+          "title": "Programming Books",
+          "description": "Deep diving into technical concepts and software engineering principles.",
+          "tags": ["Technical", "Concepts", "Best Practices"]
+        },
+        {
+          "icon": "GiSwordsPower",
+          "title": "Sci-Fi & Fantasy",
+          "description": "Exploring imaginative worlds and futuristic concepts through literature.",
+          "tags": ["World Building", "Technology", "Adventure"]
+        },
+        {
+          "icon": "FaLanguage",
+          "title": "Language Learning Books",
+          "description": "Structured learning materials for mastering new languages.",
+          "tags": ["Grammar", "Exercises", "Reference"]
+        }
+      ]
+    }
+  }
+}

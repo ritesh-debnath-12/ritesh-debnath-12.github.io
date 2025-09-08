@@ -1,0 +1,81 @@
+{
+  "skills": [
+    {
+      "icon": "FaJava",
+      "title": "Java",
+      "description": "Object-oriented programming, Spring Framework, and enterprise application development",
+      "color": "#f89820",
+      "colorRgb": "248, 152, 32"
+    },
+    {
+      "icon": "SiTypescript",
+      "title": "TypeScript",
+      "description": "Type-safe development, interfaces, and advanced TypeScript patterns",
+      "color": "#3178c6",
+      "colorRgb": "49, 120, 198"
+    },
+    {
+      "icon": "SiReact",
+      "title": "React",
+      "description": "Component-based architecture, hooks, state management, and modern React patterns",
+      "color": "#61dafb",
+      "colorRgb": "97, 218, 251"
+    },
+    {
+      "icon": "SiNodedotjs",
+      "title": "Node.js",
+      "description": "Server-side JavaScript, RESTful APIs, and backend development",
+      "color": "#339933",
+      "colorRgb": "51, 153, 51"
+    },
+		{
+			"icon": "SiSpringboot",
+			"title": "Spring Boot",
+			"description": "Java-based framework for building web applications and microservices",
+			"color": "#6db33f",
+			"colorRgb": "109, 179, 63"
+		},
+    {
+      "icon": "SiPython",
+      "title": "Python",
+      "description": "Data analysis, automation, web development with Django/Flask",
+      "color": "#3776ab",
+      "colorRgb": "55, 118, 171"
+    },
+    {
+      "icon": "SiGit",
+      "title": "Git",
+      "description": "Version control, collaborative development, and Git workflows",
+      "color": "#f05032",
+      "colorRgb": "240, 80, 50"
+    },
+		{
+			"icon": "SiMysql",
+			"title": "MySQL",
+			"description": "Database design, SQL queries, and data management",
+			"color": "#4479A1",
+			"colorRgb": "68, 121, 161"
+		},
+    {
+      "icon": "SiDocker",
+      "title": "Docker",
+      "description": "Containerization, deployment, and DevOps practices",
+      "color": "#2496ed",
+      "colorRgb": "36, 150, 237"
+    },
+    {
+    	"icon": "SiExcalidraw",
+    	"title": "Excalidraw",
+    	"description": "Virtual whiteboard tool for sketching hand-drawn like diagrams",
+    	"color": "#f0f0f0",
+    	"colorRgb": "240, 240, 240"
+    },
+		{
+			"icon": "SiArchlinux",
+			"title": "Arch Linux",
+			"description": "I use Arch btw.",
+			"color": "#A3C1DA",
+			"colorRgb": "163, 193, 218"
+		}
+  ]
+}

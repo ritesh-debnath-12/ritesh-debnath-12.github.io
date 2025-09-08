@@ -1,0 +1,418 @@
+/*
+================================================================================
+SKILLS COLORS DIRECTORY
+================================================================================
+
+This section serves as a reference for all skill card colors used throughout
+the Skills carousel. Each skill has both HEX and RGB values for advanced
+styling effects, particularly for dark mode glow effects.
+
+SKILLS COLOR PALETTE:
+┌─────────────────────────┬─────────────┬─────────────────┬─────────────────┐
+│ Technology/Skill        │ HEX Color   │ RGB Values      │ Color Preview   │
+├─────────────────────────┼─────────────┼─────────────────┼─────────────────┤
+│ Java                    │ #f89820     │ 248, 152, 32    │ Orange          │
+│ JavaScript              │ #f7df1e     │ 247, 223, 30    │ Yellow          │
+│ TypeScript              │ #3178c6     │ 49, 120, 198    │ Blue            │
+│ React                   │ #61dafb     │ 97, 218, 251    │ Cyan            │
+│ Node.js                 │ #339933     │ 51, 153, 51     │ Green           │
+│ Python                  │ #3776ab     │ 55, 118, 171    │ Dark Blue       │
+│ Git                     │ #f05032     │ 240, 80, 50     │ Red-Orange      │
+│ Docker                  │ #2496ed     │ 36, 150, 237    │ Blue            │
+└─────────────────────────┴─────────────┴─────────────────┴─────────────────┘
+
+BRAND COLOR REFERENCES:
+These colors are inspired by the official brand colors of each technology:
+- Java: Oracle's Java orange (#f89820)
+- JavaScript: Official JS yellow (#f7df1e)
+- TypeScript: Microsoft's TS blue (#3178c6)
+- React: Facebook's React cyan (#61dafb)
+- Node.js: Official Node green (#339933)
+- Python: Python Software Foundation blue (#3776ab)
+- Git: Git SCM red-orange (#f05032)
+- Docker: Docker Inc. blue (#2496ed)
+
+USAGE NOTES:
+- HEX colors are used for basic styling (borders, text, icons)
+- RGB values are used for advanced effects (glows, shadows, transparency)
+- Colors are applied via CSS custom properties: --skill-color and --skill-color-rgb
+- Active/center card gets full glow treatment in dark mode
+- Hover states provide color previews for non-active cards
+
+ADDING NEW SKILLS:
+1. Research the official brand color of the technology/tool
+2. Convert to both HEX and RGB format
+3. Add both values to the skill object in index.tsx
+4. Update this color directory with the new skill information
+5. Test in both light and dark modes to ensure proper visibility
+6. Verify the color doesn't clash with existing skill colors
+
+CAROUSEL BEHAVIOR:
+- Center card (active): Full multi-layer glow effects
+- Background cards: Subtle hover glow previews
+- Auto-rotation: Each skill showcases its color when active
+- Manual navigation: Click any card to see its full color effect
+
+DARK MODE ENHANCEMENTS:
+- Multi-layer glow effects using rgba(var(--skill-color-rgb), opacity)
+- Enhanced icon glow with text-shadow: 0 0 12px var(--skill-color)
+- Title glow with text-shadow: 0 0 8px var(--skill-color)
+- Enhanced saturation with filter: brightness(1.2) saturate(1.3)
+- Border glows and inset shadows for 3D depth effect
+
+ACCESSIBILITY NOTES:
+- All colors meet WCAG contrast requirements in light mode
+- Dark mode enhancements maintain readability while adding visual appeal
+- Color-blind friendly palette with distinct hue variations
+
+================================================================================
+*/
+
+.skills-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: #fff;
+  transition: background-color 0.3s ease;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.skills-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden; /* Contain the carousel */
+}
+
+.skills-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 1rem 0;
+  transition: color 0.3s ease;
+}
+
+.skills-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #007ACC, #00D4FF);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.skills-title:hover::after {
+  width: 100px;
+}
+
+.skills-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0 0 4rem 0;
+  transition: color 0.3s ease;
+}
+
+/* Scroll hint */
+.skills-subtitle::after {
+  content: ' (scroll to navigate)';
+  font-size: 0.9rem;
+  color: #999;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.skills-carousel {
+  position: relative;
+  height: 500px; /* Increased height for larger radius */
+  width: 100%;
+  max-width: 1600px; /* Increased max-width for larger spread */
+  margin: 0 auto; /* Center the carousel */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px; /* Increased perspective for better depth */
+  perspective-origin: center center;
+  overflow: hidden; /* Hide overflowing cards */
+  transform-style: preserve-3d;
+}
+
+/* Swiping state for touch feedback */
+.skills-carousel.swiping {
+  cursor: grabbing;
+  user-select: none;
+}
+
+/* Touch-friendly styling for mobile */
+@media (max-width: 768px) {
+  .skills-carousel {
+    touch-action: pan-y; /* Allow vertical scrolling but prevent horizontal pan conflicts */
+    cursor: grab;
+  }
+  
+  .skills-carousel.swiping {
+    cursor: grabbing;
+  }
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.skill-card {
+  position: absolute;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 1.2rem; /* Further reduced to match project cards */
+  text-align: center;
+  width: 240px; /* Reduced to better match project cards (~373px) */
+  height: 260px; /* Reduced to better match project cards (~400px) */
+  cursor: pointer;
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem; /* Further reduced spacing */
+  /* Remove the manual positioning since we'll handle it with 3D transforms */
+  transform-origin: center center;
+  backface-visibility: hidden; /* Improve 3D rendering */
+}
+
+.skill-card.active {
+  z-index: 5 !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border-color: var(--skill-color, #007ACC);
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--skill-color, #007ACC) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  border-radius: 16px;
+}
+
+.skill-card:hover::before {
+  opacity: 0.1;
+}
+
+.skill-card.active::before {
+  opacity: 0.05;
+}
+
+.skill-card:hover .skill-icon,
+.skill-card.active .skill-icon {
+  color: var(--skill-color, #007ACC);
+  transform: scale(1.2);
+}
+
+.skill-card:hover .skill-title,
+.skill-card.active .skill-title {
+  color: var(--skill-color, #007ACC);
+}
+
+.skill-icon {
+  font-size: 2.2rem; /* Further reduced to fit smaller cards */
+  color: #666;
+  margin: 0 0 0.8rem 0; /* Adjusted margin */
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
+}
+
+.skill-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem; /* Further reduced for smaller cards */
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 0.5rem 0; /* Reduced margin */
+  transition: color 0.4s ease;
+}
+
+.skill-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem; /* Reduced for smaller cards */
+  line-height: 1.5; /* Tighter line height */
+  color: #666;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Dark mode styles */
+.app.dark .skills-section {
+  background: #000;
+}
+
+.app.dark .skills-title {
+  color: #fff;
+}
+
+.app.dark .skills-subtitle {
+  color: #999;
+}
+
+.app.dark .skills-subtitle::after {
+  color: #777;
+}
+
+.app.dark .skill-card {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.app.dark .skill-card:hover,
+.app.dark .skill-card.active {
+  background: #222;
+  /* Enhanced shadow with color glow */
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(var(--skill-color-rgb, 0, 122, 204), 0.3),
+    0 0 0 2px rgba(var(--skill-color-rgb, 0, 122, 204), 0.4),
+    inset 0 0 20px rgba(var(--skill-color-rgb, 0, 122, 204), 0.1);
+  border-color: var(--skill-color, #007ACC);
+}
+
+.app.dark .skill-card::before {
+  /* Make the gradient more vibrant in dark mode */
+  background: linear-gradient(135deg, var(--skill-color, #007ACC) 0%, transparent 50%);
+}
+
+.app.dark .skill-card:hover::before,
+.app.dark .skill-card.active::before {
+  opacity: 0.15; /* Increased opacity for more vibrant effect */
+}
+
+.app.dark .skill-card:hover .skill-icon,
+.app.dark .skill-card.active .skill-icon {
+  color: var(--skill-color, #007ACC);
+  /* Add a subtle glow effect to make colors pop more */
+  text-shadow: 0 0 12px var(--skill-color, #007ACC);
+  filter: brightness(1.2) saturate(1.3);
+}
+
+.app.dark .skill-card:hover .skill-title,
+.app.dark .skill-card.active .skill-title {
+  color: var(--skill-color, #007ACC);
+  /* Add a subtle glow effect to make colors pop more */
+  text-shadow: 0 0 8px var(--skill-color, #007ACC);
+  filter: brightness(1.2) saturate(1.3);
+}
+
+.app.dark .skill-icon {
+  color: #999;
+}
+
+.app.dark .skill-title {
+  color: #fff;
+}
+
+.app.dark .skill-description {
+  color: #ccc;
+}
+
+/* Add subtle color hint for non-active cards in dark mode */
+.app.dark .skill-card:not(.active):hover {
+  border-color: rgba(var(--skill-color-rgb, 0, 122, 204), 0.5);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(var(--skill-color-rgb, 0, 122, 204), 0.2);
+}
+
+.app.dark .skill-card:not(.active):hover .skill-icon {
+  color: var(--skill-color, #007ACC);
+  filter: brightness(1.1) saturate(1.2);
+  text-shadow: 0 0 8px rgba(var(--skill-color-rgb, 0, 122, 204), 0.5);
+}
+
+.app.dark .skill-card:not(.active):hover .skill-title {
+  color: var(--skill-color, #007ACC);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 3rem 1rem;
+    overflow-x: hidden; /* Ensure no horizontal overflow on mobile */
+  }
+  
+  .skills-container {
+    overflow: hidden; /* Additional overflow control */
+  }
+  
+  .skills-title {
+    font-size: 2.5rem;
+  }
+  
+  .carousel-container {
+    gap: 0;
+    overflow: hidden; /* Prevent carousel overflow */
+  }
+  
+  .skill-card {
+    width: 240px; /* Smaller cards for mobile */
+    height: 280px;
+    padding: 1.2rem;
+  }
+  
+  .skills-carousel {
+    height: 400px; /* Reduced height for mobile */
+    max-width: 100%; /* Full width on mobile */
+    overflow: hidden; /* Critical: hide overflowing content */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 2rem 0.5rem;
+  }
+  
+  .skills-title {
+    font-size: 2rem;
+  }
+  
+  .skill-card {
+    width: 200px; /* Even smaller cards for very small screens */
+    height: 240px;
+    padding: 1rem;
+  }
+  
+  .skills-carousel {
+    height: 350px;
+    max-width: calc(100vw - 1rem); /* Ensure it doesn't exceed viewport */
+  }
+  
+  .skill-icon {
+    font-size: 1.8rem;
+  }
+  
+  .skill-title {
+    font-size: 0.9rem;
+  }
+  
+  .skill-description {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+}

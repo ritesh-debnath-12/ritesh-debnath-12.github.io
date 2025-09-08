@@ -1,0 +1,390 @@
+/*
+================================================================================
+PROJECT COLORS DIRECTORY
+================================================================================
+
+This section serves as a reference for all project card colors used throughout
+the Projects section. Each project has both HEX and RGB values for advanced
+styling effects, particularly for dark mode glow effects.
+
+PROJECT COLOR PALETTE:
+┌─────────────────────────┬─────────────┬─────────────────┬─────────────────┐
+│ Project                 │ HEX Color   │ RGB Values      │ Color Preview   │
+├─────────────────────────┼─────────────┼─────────────────┼─────────────────┤
+│ E-Commerce Platform     │ #007ACC     │ 0, 122, 204     │ Bright Blue     │
+│ Task Management App     │ #FF6B6B     │ 255, 107, 107   │ Coral Red       │
+│ Weather Dashboard       │ #4ECDC4     │ 78, 205, 196    │ Turquoise       │
+│ Portfolio Website       │ #45B7D1     │ 69, 183, 209    │ Sky Blue        │
+│ Social Media Dashboard  │ #9B59B6     │ 155, 89, 182    │ Purple          │
+│ AI Chat Application     │ #E74C3C     │ 231, 76, 60     │ Red             │
+└─────────────────────────┴─────────────┴─────────────────┴─────────────────┘
+
+USAGE NOTES:
+- HEX colors are used for basic styling (borders, text, backgrounds)
+- RGB values are used for advanced effects (glows, shadows, transparency)
+- Colors are applied via CSS custom properties: --project-color and --project-color-rgb
+- Dark mode uses enhanced saturation and glow effects for better visibility
+
+ADDING NEW PROJECTS:
+1. Choose a unique, vibrant color that stands out from existing ones
+2. Add both HEX and RGB values to the project object in index.tsx
+3. Update this color directory with the new project information
+4. Test in both light and dark modes to ensure proper visibility
+
+COLOR PSYCHOLOGY:
+- Blue tones (#007ACC, #45B7D1): Trust, reliability, tech-focused projects
+- Red tones (#FF6B6B, #E74C3C): Energy, urgency, interactive applications
+- Green tones (#4ECDC4): Growth, harmony, data/analytics projects
+- Purple (#9B59B6): Creativity, innovation, social/creative platforms
+
+DARK MODE ENHANCEMENTS:
+- Multi-layer glow effects using rgba(var(--project-color-rgb), opacity)
+- Enhanced saturation with filter: brightness(1.2) saturate(1.3)
+- Text shadows for glowing text effects
+- Border glows and inset shadows for depth
+
+================================================================================
+*/
+
+.projects-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.projects-container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.projects-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0 0 1rem 0;
+  transition: color 0.3s ease;
+  opacity: 1; /* Ensure visibility */
+  transform: translateY(0); /* Ensure no transform */
+}
+
+.projects-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #007ACC, #00D4FF);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.projects-title:hover::after {
+  width: 150px;
+}
+
+.projects-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0 0 4rem 0;
+  transition: color 0.3s ease;
+  opacity: 1; /* Ensure visibility */
+  transform: translateY(0); /* Ensure no transform */
+}
+
+.editable-count {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  min-width: 1ch;
+  max-width: 4ch;
+  text-align: left;
+}
+
+.editable-count-display {
+  cursor: pointer;
+  position: relative;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.editable-count-display:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.editable-count-display:hover::after {
+  content: '✎';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+/* Dark mode styles */
+.app.dark .editable-count-display:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: left;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  height: fit-content;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  opacity: 1; /* Ensure visibility by default */
+  transform: translateY(0); /* Ensure no transform by default */
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--project-color, #007ACC) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--project-color, #007ACC);
+}
+
+.project-card:hover::before {
+  opacity: 0.05;
+}
+
+.project-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0 0 1rem 0;
+  transition: color 0.4s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--project-color, #007ACC);
+}
+
+.project-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0 0 1.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 2rem 0;
+}
+
+.tech-tag {
+  background: #f0f0f0;
+  color: #666;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .tech-tag {
+  background: var(--project-color, #007ACC);
+  color: #fff;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-decoration: none;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.live-link:hover {
+  background: var(--project-color, #007ACC);
+  border-color: var(--project-color, #007ACC);
+  color: #fff;
+}
+
+.github-link:hover {
+  background: #333;
+  border-color: #333;
+  color: #fff;
+}
+
+/* Dark mode styles */
+.app.dark .projects-section {
+  background: #000;
+}
+
+.app.dark .projects-title {
+  color: #fff;
+}
+
+.app.dark .projects-subtitle {
+  color: #999;
+}
+
+.app.dark .project-card {
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.app.dark .project-card:hover {
+  background: #222;
+  /* Enhanced shadow with color glow */
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(var(--project-color-rgb, 0, 122, 204), 0.3),
+    0 0 0 2px rgba(var(--project-color-rgb, 0, 122, 204), 0.4),
+    inset 0 0 20px rgba(var(--project-color-rgb, 0, 122, 204), 0.1);
+  border-color: var(--project-color, #007ACC);
+}
+
+.app.dark .project-card::before {
+  /* Make the gradient more vibrant in dark mode */
+  background: linear-gradient(135deg, var(--project-color, #007ACC) 0%, transparent 50%);
+}
+
+.app.dark .project-card:hover::before {
+  opacity: 0.15; /* Increased opacity for more vibrant effect */
+}
+
+.app.dark .project-card:hover .project-title {
+  color: var(--project-color, #007ACC);
+  /* Add a subtle glow effect to make colors pop more */
+  text-shadow: 0 0 8px var(--project-color, #007ACC);
+  filter: brightness(1.2) saturate(1.3);
+}
+
+.app.dark .project-title {
+  color: #fff;
+}
+
+.app.dark .project-description {
+  color: #ccc;
+}
+
+.app.dark .tech-tag {
+  background: #333;
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.app.dark .project-card:hover .tech-tag {
+  background: rgba(var(--project-color-rgb, 0, 122, 204), 0.2);
+  border-color: var(--project-color, #007ACC);
+  color: var(--project-color, #007ACC);
+  filter: brightness(1.2) saturate(1.2);
+}
+
+.app.dark .project-link {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ccc;
+}
+
+.app.dark .project-card:hover .project-link {
+  border-color: var(--project-color, #007ACC);
+  color: var(--project-color, #007ACC);
+  filter: brightness(1.1) saturate(1.2);
+  background: rgba(var(--project-color-rgb, 0, 122, 204), 0.1);
+  box-shadow: 0 0 10px rgba(var(--project-color-rgb, 0, 122, 204), 0.2);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 3rem 1rem;
+  }
+  
+  .projects-title {
+    font-size: 2.5rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    padding: 1.5rem;
+    min-height: 350px;
+  }
+  
+  .project-links {
+    flex-direction: column;
+  }
+}
